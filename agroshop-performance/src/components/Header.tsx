@@ -3,9 +3,11 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { FaSeedling, FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa'
+import { useCart } from '@/context/CartContext'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { getTotalItems } = useCart()
 
   return (
     <header className="bg-primary-600 text-white shadow-lg sticky top-0 z-50">
@@ -38,12 +40,14 @@ export default function Header() {
 
           {/* Panier et Menu Mobile */}
           <div className="flex items-center space-x-4">
-            <button className="relative hover:text-primary-100 transition" aria-label="Panier">
+            <Link href="/panier" className="relative hover:text-primary-100 transition" aria-label="Panier">
               <FaShoppingCart className="text-2xl" />
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                0
-              </span>
-            </button>
+              {getTotalItems() > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {getTotalItems()}
+                </span>
+              )}
+            </Link>
 
             {/* Bouton Menu Mobile */}
             <button

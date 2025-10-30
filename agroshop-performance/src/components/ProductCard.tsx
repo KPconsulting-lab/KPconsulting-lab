@@ -1,20 +1,40 @@
+'use client'
+
 import Link from 'next/link'
 import { Product } from '@/types'
-import { FaShoppingCart, FaClock, FaLeaf } from 'react-icons/fa'
+import { FaShoppingCart, FaClock, FaLeaf, FaCheckCircle } from 'react-icons/fa'
+import { useCart } from '@/context/CartContext'
+import { useState } from 'react'
 
 interface ProductCardProps {
   product: Product
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { addToCart } = useCart()
+  const [showToast, setShowToast] = useState(false)
+
   const formattedPrice = new Intl.NumberFormat('fr-FR', {
     style: 'currency',
     currency: 'XOF',
     minimumFractionDigits: 0,
   }).format(product.price)
 
+  const handleAddToCart = () => {
+    addToCart(product)
+    setShowToast(true)
+    setTimeout(() => setShowToast(false), 3000)
+  }
+
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group relative">
+      {/* Toast de confirmation */}
+      {showToast && (
+        <div className="absolute top-2 left-2 right-2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-10 flex items-center gap-2 animate-slide-down">
+          <FaCheckCircle />
+          <span className="text-sm font-medium">Ajouté au panier!</span>
+        </div>
+      )}
       {/* Image */}
       <Link href={`/produits/${product.id}`}>
         <div className="relative h-48 bg-gray-200 overflow-hidden">
@@ -56,6 +76,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             {formattedPrice}
           </span>
           <button
+            onClick={handleAddToCart}
             className="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition flex items-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
             disabled={product.stock === 0}
           >

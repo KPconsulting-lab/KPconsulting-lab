@@ -2,8 +2,9 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import productsData from '@/data/products.json'
 import { Product } from '@/types'
-import { FaArrowLeft, FaShoppingCart, FaLeaf, FaClock, FaSeedling, FaCheckCircle } from 'react-icons/fa'
+import { FaArrowLeft, FaLeaf, FaClock, FaSeedling, FaCheckCircle } from 'react-icons/fa'
 import ProductCard from '@/components/ProductCard'
+import AddToCartButton from '@/components/AddToCartButton'
 
 interface PageProps {
   params: {
@@ -144,28 +145,14 @@ export default function ProductDetailPage({ params }: PageProps) {
                   </ul>
                 </div>
 
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <span className="text-sm text-gray-500 block mb-1">Prix</span>
-                    <span className="text-4xl font-bold text-primary-600">
-                      {formattedPrice}
-                    </span>
-                  </div>
+                <div className="mb-6">
+                  <span className="text-sm text-gray-500 block mb-1">Prix</span>
+                  <span className="text-4xl font-bold text-primary-600">
+                    {formattedPrice}
+                  </span>
                 </div>
 
-                <button
-                  className="w-full bg-primary-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-primary-700 transition flex items-center justify-center space-x-3 disabled:bg-gray-400 disabled:cursor-not-allowed"
-                  disabled={product.stock === 0}
-                >
-                  <FaShoppingCart className="text-2xl" />
-                  <span>Ajouter au Panier</span>
-                </button>
-
-                {product.stock === 0 && (
-                  <p className="text-center text-red-600 mt-4 font-medium">
-                    Ce produit sera bientôt disponible
-                  </p>
-                )}
+                <AddToCartButton product={product} />
               </div>
             </div>
 
