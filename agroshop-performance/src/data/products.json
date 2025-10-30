@@ -1,0 +1,138 @@
+[
+  {
+    "id": "1",
+    "name": "Semences de Tomate Roma",
+    "category": "legumes",
+    "price": 2500,
+    "description": "Variété de tomate roma idéale pour la sauce et la conserve. Excellente résistance aux maladies.",
+    "image": "/images/tomate-roma.jpg",
+    "stock": 150,
+    "plantingSeason": ["Printemps", "Début d'été"],
+    "harvestTime": "75-85 jours",
+    "features": [
+      "Résistant aux maladies",
+      "Haute productivité",
+      "Goût excellent",
+      "Idéal pour la sauce"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Semences de Maïs Hybride",
+    "category": "cereales",
+    "price": 5000,
+    "description": "Maïs hybride à haut rendement, adapté au climat tropical et subtropical.",
+    "image": "/images/mais-hybride.jpg",
+    "stock": 200,
+    "plantingSeason": ["Saison des pluies"],
+    "harvestTime": "90-100 jours",
+    "features": [
+      "Rendement élevé",
+      "Résistant à la sécheresse",
+      "Grains dorés",
+      "Adapté au climat tropical"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Semences de Laitue Verte",
+    "category": "legumes",
+    "price": 1500,
+    "description": "Laitue verte croquante, croissance rapide, parfaite pour les salades fraîches.",
+    "image": "/images/laitue-verte.jpg",
+    "stock": 300,
+    "plantingSeason": ["Toute l'année"],
+    "harvestTime": "45-55 jours",
+    "features": [
+      "Croissance rapide",
+      "Texture croquante",
+      "Riche en vitamines",
+      "Culture facile"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Semences de Piment Fort",
+    "category": "legumes",
+    "price": 3000,
+    "description": "Piment fort très piquant, idéal pour les sauces et assaisonnements.",
+    "image": "/images/piment-fort.jpg",
+    "stock": 180,
+    "plantingSeason": ["Printemps", "Été"],
+    "harvestTime": "70-80 jours",
+    "features": [
+      "Très piquant",
+      "Haute productivité",
+      "Résistant aux nuisibles",
+      "Longue conservation"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Semences de Gombo",
+    "category": "legumes",
+    "price": 2000,
+    "description": "Gombo de qualité supérieure, adapté aux climats chauds, parfait pour les sauces.",
+    "image": "/images/gombo.jpg",
+    "stock": 220,
+    "plantingSeason": ["Saison chaude"],
+    "harvestTime": "50-65 jours",
+    "features": [
+      "Adapté au climat chaud",
+      "Récolte continue",
+      "Riche en fibres",
+      "Usage culinaire varié"
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Semences de Carotte Nantaise",
+    "category": "legumes",
+    "price": 2200,
+    "description": "Carotte nantaise sucrée et croquante, idéale pour tous types de sols.",
+    "image": "/images/carotte-nantaise.jpg",
+    "stock": 250,
+    "plantingSeason": ["Automne", "Hiver"],
+    "harvestTime": "70-80 jours",
+    "features": [
+      "Très sucrée",
+      "Couleur orange vif",
+      "Bonne conservation",
+      "Riche en vitamines"
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Semences de Haricot Vert",
+    "category": "legumes",
+    "price": 2800,
+    "description": "Haricot vert grimpant, production abondante, excellent goût.",
+    "image": "/images/haricot-vert.jpg",
+    "stock": 190,
+    "plantingSeason": ["Printemps", "Été"],
+    "harvestTime": "55-65 jours",
+    "features": [
+      "Production abondante",
+      "Sans fil",
+      "Goût délicat",
+      "Riche en protéines"
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Semences de Pastèque Sugar Baby",
+    "category": "fruits",
+    "price": 3500,
+    "description": "Petite pastèque très sucrée, parfaite pour les petits jardins.",
+    "image": "/images/pasteque.jpg",
+    "stock": 120,
+    "plantingSeason": ["Été"],
+    "harvestTime": "75-85 jours",
+    "features": [
+      "Très sucrée",
+      "Taille compacte",
+      "Chair rouge vif",
+      "Peu de pépins"
+    ]
+  }
+]

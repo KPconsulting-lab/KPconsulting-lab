@@ -1,0 +1,54 @@
+[
+  {
+    "id": "1",
+    "slug": "guide-complet-plantation-semences",
+    "title": "Guide Complet pour la Plantation des Semences",
+    "excerpt": "Découvrez les meilleures pratiques pour réussir vos plantations de semences et maximiser vos récoltes.",
+    "content": "# Guide Complet pour la Plantation des Semences\n\nLa plantation de semences est un art qui nécessite connaissance et patience. Voici les étapes essentielles:\n\n## 1. Préparation du Sol\n- Analysez la composition de votre sol\n- Enrichissez avec du compost organique\n- Assurez un bon drainage\n\n## 2. Choix du Moment\n- Respectez les saisons de plantation\n- Tenez compte du climat local\n- Consultez le calendrier lunaire\n\n## 3. Technique de Semis\n- Respectez la profondeur recommandée\n- Espacez correctement les semences\n- Arrosez délicatement\n\n## 4. Entretien Post-Semis\n- Arrosage régulier mais modéré\n- Protection contre les nuisibles\n- Surveillance de la croissance\n\nAvec ces conseils, vous optimiserez vos chances de succès!",
+    "image": "/images/blog-plantation.jpg",
+    "category": "Guides",
+    "author": "Marie Agronome",
+    "date": "2024-10-15",
+    "readTime": "8 min",
+    "tags": ["plantation", "semences", "agriculture", "guide"]
+  },
+  {
+    "id": "2",
+    "slug": "calendrier-plantation-legumes",
+    "title": "Calendrier de Plantation des Légumes au Togo",
+    "excerpt": "Un calendrier détaillé pour savoir quand planter chaque type de légume selon les saisons togolaises.",
+    "content": "# Calendrier de Plantation des Légumes au Togo\n\n## Saison des Pluies (Avril - Octobre)\nC'est la période idéale pour:\n- Maïs\n- Gombo\n- Tomates\n- Piments\n- Haricots\n\n## Saison Sèche (Novembre - Mars)\nPrivilégiez:\n- Carottes\n- Laitues\n- Oignons\n- Choux\n\n## Cultures Toute l'Année\nCertains légumes peuvent être cultivés en permanence:\n- Laitue\n- Épinards\n- Herbes aromatiques\n\nAdaptez toujours selon votre zone climatique spécifique!",
+    "image": "/images/blog-calendrier.jpg",
+    "category": "Calendrier",
+    "author": "Jean Cultivateur",
+    "date": "2024-10-20",
+    "readTime": "6 min",
+    "tags": ["calendrier", "légumes", "togo", "saisons"]
+  },
+  {
+    "id": "3",
+    "slug": "avantages-semences-hybrides",
+    "title": "Les Avantages des Semences Hybrides",
+    "excerpt": "Pourquoi choisir des semences hybrides? Découvrez leurs avantages pour votre exploitation.",
+    "content": "# Les Avantages des Semences Hybrides\n\n## Qu'est-ce qu'une Semence Hybride?\nUne semence hybride résulte du croisement contrôlé de deux variétés différentes.\n\n## Avantages Principaux\n\n### 1. Rendement Supérieur\n- Production 20-30% plus élevée\n- Fruits plus gros et uniformes\n\n### 2. Résistance Accrue\n- Meilleure résistance aux maladies\n- Tolérance à la sécheresse\n- Résistance aux nuisibles\n\n### 3. Qualité Améliorée\n- Goût optimisé\n- Meilleure conservation\n- Apparence attractive\n\n### 4. Adaptation Climatique\n- Convient aux conditions locales\n- Performance stable\n\n## Considérations\n- Coût initial plus élevé\n- Semences non reproductibles\n- Nécessite un renouvellement annuel\n\nLes hybrides représentent un investissement rentable pour les agriculteurs professionnels.",
+    "image": "/images/blog-hybrides.jpg",
+    "category": "Éducation",
+    "author": "Dr. Koffi Agronome",
+    "date": "2024-10-25",
+    "readTime": "10 min",
+    "tags": ["hybrides", "semences", "rendement", "agriculture moderne"]
+  },
+  {
+    "id": "4",
+    "slug": "lutte-biologique-nuisibles",
+    "title": "Lutte Biologique Contre les Nuisibles",
+    "excerpt": "Méthodes naturelles et écologiques pour protéger vos cultures sans produits chimiques.",
+    "content": "# Lutte Biologique Contre les Nuisibles\n\n## Pourquoi Choisir la Lutte Biologique?\n- Préserve l'environnement\n- Protège la santé\n- Maintient la biodiversité\n- Production bio certifiable\n\n## Méthodes Naturelles\n\n### 1. Plantes Compagnes\n- Basilic repousse les mouches\n- Œillets d'Inde contre les nématodes\n- Ail protège contre les pucerons\n\n### 2. Prédateurs Naturels\n- Coccinelles contre les pucerons\n- Guêpes parasitoïdes\n- Oiseaux insectivores\n\n### 3. Préparations Naturelles\n- Purin d'ortie\n- Décoction d'ail\n- Solution de savon noir\n\n### 4. Pratiques Culturales\n- Rotation des cultures\n- Paillage\n- Arrosage adapté\n\n## Mise en Œuvre\nCommencez petit et observez les résultats. La patience est clé en agriculture biologique!",
+    "image": "/images/blog-bio.jpg",
+    "category": "Biologique",
+    "author": "Ama Écologiste",
+    "date": "2024-10-28",
+    "readTime": "12 min",
+    "tags": ["biologique", "nuisibles", "écologie", "naturel"]
+  }
+]
