@@ -12,6 +12,7 @@ export default function CheckoutPage() {
   const [isProcessing, setIsProcessing] = useState(false)
   const [orderCompleted, setOrderCompleted] = useState(false)
   const [orderNumber, setOrderNumber] = useState('')
+  const [error, setError] = useState('')
 
   const [formData, setFormData] = useState({
     // Informations personnelles
@@ -49,24 +50,86 @@ export default function CheckoutPage() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+    setError('')
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsProcessing(true)
+    setError('')
 
-    // Simuler le traitement de la commande
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      // Générer un numéro de commande
+      const orderNum = 'CMD-' + Date.now().toString().slice(-8)
+      setOrderNumber(orderNum)
 
-    // Générer un numéro de commande
-    const orderNum = 'CMD-' + Date.now().toString().slice(-8)
-    setOrderNumber(orderNum)
-    setOrderCompleted(true)
-    clearCart()
-    setIsProcessing(false)
+      // Si paiement Mobile Money via Fedapay
+      if (formData.modePaiement === 'mobile') {
+        // Préparer la description de la commande
+        const description = `Commande ${orderNum} - ${getTotalItems()} article(s)`
+
+        // Créer la transaction Fedapay
+        const response = await fetch('/api/fedapay/create-transaction', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            amount: getTotalPrice(),
+            description,
+            customer: {
+              firstname: formData.prenom,
+              lastname: formData.nom,
+              email: formData.email,
+              phone: formData.numeroMobile,
+            },
+          }),
+        })
+
+        const data = await response.json()
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.message || 'Erreur lors de la création du paiement')
+        }
+
+        // Sauvegarder les infos de commande avant redirection
+        localStorage.setItem('pending_order', JSON.stringify({
+          orderNumber: orderNum,
+          transactionId: data.transaction.id,
+          transactionRef: data.transaction.reference,
+          customer: formData,
+          cart: cart,
+          total: getTotalPrice(),
+        }))
+
+        // Rediriger vers la page de paiement Fedapay
+        window.location.href = data.transaction.payment_url
+
+      } else {
+        // Paiement à la livraison (Cash) - traitement classique
+        await new Promise((resolve) => setTimeout(resolve, 2000))
+
+        // Sauvegarder la commande (en production: envoyer vers API backend)
+        localStorage.setItem('completed_order', JSON.stringify({
+          orderNumber: orderNum,
+          customer: formData,
+          cart: cart,
+          total: getTotalPrice(),
+          paymentMethod: 'cash',
+          date: new Date().toISOString(),
+        }))
+
+        setOrderCompleted(true)
+        clearCart()
+      }
+    } catch (error: any) {
+      console.error('Erreur:', error)
+      setError(error.message || 'Une erreur est survenue. Veuillez réessayer.')
+      setIsProcessing(false)
+    }
   }
 
-  // Page de confirmation
+  // Page de confirmation (pour paiement à la livraison uniquement)
   if (orderCompleted) {
     return (
       <div className="min-h-screen bg-gray-50 py-12">
@@ -88,6 +151,7 @@ export default function CheckoutPage() {
                   <li>✅ Confirmation envoyée par email</li>
                   <li>📦 Préparation de votre commande</li>
                   <li>🚚 Livraison sous 24-48h</li>
+                  <li>💵 Paiement à la livraison</li>
                   <li>📞 Suivi par SMS/WhatsApp</li>
                 </ul>
               </div>
@@ -128,6 +192,13 @@ export default function CheckoutPage() {
             </Link>
             <h1 className="text-4xl font-bold text-gray-800">Finaliser la Commande</h1>
           </div>
+
+          {/* Message d'erreur */}
+          {error && (
+            <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
+              <p className="text-red-800 font-medium">⚠️ {error}</p>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Formulaire */}
@@ -271,35 +342,48 @@ export default function CheckoutPage() {
                     <span>Mode de Paiement</span>
                   </h2>
                   <div className="space-y-4">
-                    <div>
-                      <label className="flex items-center space-x-3 cursor-pointer">
+                    <div className="border border-primary-200 rounded-lg p-4 bg-primary-50">
+                      <label className="flex items-start space-x-3 cursor-pointer">
                         <input
                           type="radio"
                           name="modePaiement"
                           value="mobile"
                           checked={formData.modePaiement === 'mobile'}
                           onChange={handleInputChange}
-                          className="w-4 h-4 text-primary-600"
+                          className="w-5 h-5 text-primary-600 mt-1"
                         />
-                        <span className="font-medium">Mobile Money (TMoney, Flooz)</span>
+                        <div className="flex-1">
+                          <div className="font-bold text-gray-800">Mobile Money (TMoney, Flooz)</div>
+                          <div className="text-sm text-gray-600 mt-1">
+                            💳 Paiement sécurisé via Fedapay
+                          </div>
+                          <div className="text-xs text-primary-700 mt-2 font-medium">
+                            ✅ Paiement instantané • ✅ 100% sécurisé
+                          </div>
+                        </div>
                       </label>
                     </div>
-                    <div>
-                      <label className="flex items-center space-x-3 cursor-pointer">
+                    <div className="border border-gray-200 rounded-lg p-4">
+                      <label className="flex items-start space-x-3 cursor-pointer">
                         <input
                           type="radio"
                           name="modePaiement"
                           value="livraison"
                           checked={formData.modePaiement === 'livraison'}
                           onChange={handleInputChange}
-                          className="w-4 h-4 text-primary-600"
+                          className="w-5 h-5 text-primary-600 mt-1"
                         />
-                        <span className="font-medium">Paiement à la Livraison (Cash)</span>
+                        <div className="flex-1">
+                          <div className="font-bold text-gray-800">Paiement à la Livraison (Cash)</div>
+                          <div className="text-sm text-gray-600 mt-1">
+                            💵 Payez en espèces à la réception
+                          </div>
+                        </div>
                       </label>
                     </div>
 
                     {formData.modePaiement === 'mobile' && (
-                      <div className="mt-4">
+                      <div className="mt-4 border-t pt-4">
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Numéro Mobile Money *
                         </label>
@@ -312,6 +396,9 @@ export default function CheckoutPage() {
                           placeholder="+228 XX XX XX XX"
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                         />
+                        <p className="text-xs text-gray-500 mt-2">
+                          ℹ️ Vous serez redirigé vers la page de paiement sécurisée Fedapay
+                        </p>
                       </div>
                     )}
                   </div>
@@ -403,16 +490,20 @@ export default function CheckoutPage() {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         ></path>
                       </svg>
-                      Traitement en cours...
+                      {formData.modePaiement === 'mobile' ? 'Redirection...' : 'Traitement...'}
                     </span>
                   ) : (
-                    'Confirmer la Commande'
+                    formData.modePaiement === 'mobile'
+                      ? '💳 Payer avec Mobile Money'
+                      : 'Confirmer la Commande'
                   )}
                 </button>
 
                 <p className="text-xs text-gray-500 text-center mt-4">
                   <FaLock className="inline mr-1" />
-                  Paiement 100% sécurisé
+                  {formData.modePaiement === 'mobile'
+                    ? 'Paiement 100% sécurisé par Fedapay'
+                    : 'Paiement 100% sécurisé'}
                 </p>
               </div>
             </div>
