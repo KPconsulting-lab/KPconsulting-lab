@@ -9,7 +9,7 @@ Je transforme des données de santé, d'agriculture et d'économie en outils de 
 
 - 📊 **Analyse statistique & économétrie** — panels, imputation, modèles spatiaux (Stata, Python)
 - 🏥 **Données de santé publique** — pipelines DHIS2, suivi des agents de santé communautaire, tableaux de bord
-- 🌱 **AgriTech** — *AgroMed*, application mobile de diagnostic des maladies et ravageurs des cultures par photo (IA vision, 100 fiches SAVANA, mode hors-ligne)
+- 🌱 **AgriTech** — *AgroMed*, application mobile de diagnostic des maladies et ravageurs des cultures par photo (IA vision, mode hors-ligne)
 - 🔄 **Automatisation de flux de données** — Alteryx, scripts Python, extraction PDF
 - 📈 **Data visualisation & reporting** — cartes, dashboards, rapports automatisés
 
