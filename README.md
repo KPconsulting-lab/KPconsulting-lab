@@ -34,5 +34,6 @@ Je transforme des données de santé, d'agriculture et d'économie en outils de 
 ### 📫 Me contacter
 
 <!-- À compléter : LinkedIn, site web, e-mail professionnel -->
+- 🌐 Site : [kpconsulting-lab.github.io](https://kpconsulting-lab.github.io)
 - LinkedIn : *[à compléter]*
 - E-mail : *[à compléter]*
