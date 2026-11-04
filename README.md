@@ -1,18 +1,19 @@
 # Bonjour, je suis Patrice KAO 👋
 
-**Data Manager & Analyste de données · Économiste — Lomé, Togo**
+**Data Manager & Analyste Suivi-Évaluation (M&E) · Économiste — Lomé, Togo**
 Data Manager et analyste chez **Integrate Health** (Suivi, Évaluation et Amélioration de la Qualité) et chargé de travaux dirigés en analyse de données et économétrie spatiale à l'**UCAO**. Je transforme des données de santé, d'agriculture et d'économie en outils de décision pour l'Afrique de l'Ouest.
 
 [![Site](https://img.shields.io/badge/Site-kpconsulting--lab.github.io-1f6f5c?style=flat)](https://kpconsulting-lab.github.io)
+[![CV](https://img.shields.io/badge/CV-FR%20%7C%20EN-1f6f5c?style=flat)](https://kpconsulting-lab.github.io/cv-fr.html)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Patrice%20KAO-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/patrice-kao-84aa65160)
 
 ---
 
 ### 🔭 Ce que je fais
 
+- 🏥 **Suivi-évaluation (M&E / MEAL)** — suivi des indicateurs, assurance qualité et validation des données programmatiques, DHIS2, amélioration de la qualité
 - 📋 **Enquêtes & collecte de données** — échantillonnage, questionnaires XLSForm déployés sur SurveyCTO, KoboToolbox, CSPro et SurveyToGo, formation des enquêteurs, contrôle qualité
 - 📊 **Analyse statistique & économétrie** — évaluation d'impact (modèles d'appariement), panels, imputation, économétrie spatiale (Stata, SPSS, Python)
-- 🏥 **Suivi-évaluation en santé publique** — validation des données programmatiques, DHIS2, amélioration de la qualité
 - 📈 **Data visualisation & reporting** — tableaux de bord Tableau Desktop, cartes, rapports automatisés
 - 🔄 **Automatisation de flux de données** — Alteryx, scripts Python, extraction PDF
 - 🌱 **AgriTech** — *AgroMed*, application mobile de diagnostic des maladies et ravageurs des cultures par photo (IA vision, mode hors-ligne)
