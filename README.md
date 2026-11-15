@@ -50,6 +50,7 @@ Integrate Health · UCAO · Afrobarometer · Innovations for Poverty Action · B
 | [Stata](https://github.com/KPconsulting-lab/Stata) | Scripts Stata réutilisables : nettoyage, imputation, panels équilibrés, filtres régionaux (Afrique subsaharienne / de l'Ouest) |
 | *AgroMed* | Diagnostic des maladies des cultures par photo — PWA + Android *(à publier)* |
 | [Catalogue de semences AgroMed](https://varietes.agromed.app) | 821 variétés maraîchères pour l'Afrique, comparées par résistances, saisons et semenciers *(en ligne)* |
+| *AgroMed Collecte* | Application mobile hors ligne (PWA) pour les groupements maraîchers de Bafilo et les grossistes de Kara : récoltes, livraisons pesées, paiements mobile money, place de marché et bilan de campagne par producteur — React, TypeScript, Supabase *(en développement)* |
 | *Pipeline DHIS2 Togo* | Extraction et analyse automatisées des données sanitaires *(à publier)* |
 
 🗣️ Français (courant) · Anglais (intermédiaire)
